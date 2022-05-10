@@ -8,11 +8,12 @@ class PullActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityPullBinding
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPullBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val coins = intent.getStringExtra(ClickerActivity.COINS)?.toInt()
 
     }
 }

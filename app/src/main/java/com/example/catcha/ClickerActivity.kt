@@ -7,9 +7,12 @@ import com.example.catcha.databinding.ActivityClickerBinding
 
 class ClickerActivity : AppCompatActivity() {
 
+    companion object{
+        var COINS = ""
+    }
+
     private lateinit var binding: ActivityClickerBinding
     var coins = 0
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +27,9 @@ class ClickerActivity : AppCompatActivity() {
         }
 
         binding.buttonClickerPull.setOnClickListener {
-            val pullIntent = Intent(this, PullActivity::class.java)
+            var pullIntent = Intent(this, PullActivity::class.java).apply {
+                putExtra(COINS, coins)
+            }
             startActivity(pullIntent)
         }
     }
